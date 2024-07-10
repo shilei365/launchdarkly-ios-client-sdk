@@ -6,10 +6,12 @@ import UIKit
 import AppKit
 #elseif os(watchOS)
 import WatchKit
+#elseif os(visionOS)
+import SwiftUI
 #endif
 
 class SystemCapabilities {
-    #if os(iOS)
+    #if os(iOS) || os(visionOS)
     static var backgroundNotification: Notification.Name? { UIApplication.didEnterBackgroundNotification }
     static var foregroundNotification: Notification.Name? { UIApplication.willEnterForegroundNotification }
     static var systemName: String { UIDevice.current.systemName }
